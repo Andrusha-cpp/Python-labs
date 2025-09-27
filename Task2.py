@@ -1,13 +1,14 @@
 string = input("Input string:")
 
-vowels = "aeiouAEIOU" #all the vowels
-vowels_set = set() #set to put in it all vowels of the string
+string = string.replace("a", "") 
+string = string.replace("e", "") 
+string = string.replace("i", "") 
+string = string.replace("o", "") 
+string = string.replace("u", "") 
+string = string.replace("A", "") 
+string = string.replace("E", "") 
+string = string.replace("I", "") 
+string = string.replace("O", "") 
+string = string.replace("U", "") 
 
-for letter in string: #find vowels
-    if letter in vowels:
-        vowels_set.add(letter)
-
-for el in vowels_set: #remove vowels
-    string = string.replace(el, "")
-
-print(string)
+print("Result string:", string)
