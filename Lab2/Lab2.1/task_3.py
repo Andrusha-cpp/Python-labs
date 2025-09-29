@@ -19,4 +19,4 @@ for i in range(0, length):
     a.append(int(input()))
 
 biggest_sec = find_second(length, a)
-print(f"Second biggest number {biggest_sec}")
+print(f"Second biggest number is {biggest_sec}")
