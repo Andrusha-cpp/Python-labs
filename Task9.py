@@ -4,8 +4,10 @@ nums = IP.split(".")
 if len(nums) != 4:
     print("Incorrect IP-adress")
 else:
-    for num in nums:
-        num = int(num)
+    nums[1] = int(nums[1])
+    nums[2] = int(nums[2])
+    nums[3] = int(nums[3])
+    nums[4] = int(nums[4])
     if all(0 <= nums <= 255 for num in nums):
         print("Correct IP-adress.")
     else:
