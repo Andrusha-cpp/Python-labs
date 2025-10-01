@@ -1,7 +1,7 @@
 # в строке пользователя если больше 10 и больше 100 сущ и цифры и буквы заменить цифры на пробелы иначе вывести строку в обратном порядке
 
 string = input("Enter the string: ")
-str_length = len(string)
+str_length = len(string) 
 
 num_check = False
 
@@ -86,17 +86,8 @@ elif str_length > 100:
     print(string[::-1])
 else:
     if num_check and alpha_check:
-        string = string.replace('0', " ")
-        string = string.replace('1', " ")
-        string = string.replace('2', " ")
-        string = string.replace('3', " ")
-        string = string.replace('4', " ")
-        string = string.replace('5', " ")
-        string = string.replace('6', " ")
-        string = string.replace('7', " ")
-        string = string.replace('8', " ")
-        string = string.replace('9', " ")
-
+        string = string.replace('0123456789', " ")
+        
 print(string)
         
 
