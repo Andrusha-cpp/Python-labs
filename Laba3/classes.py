@@ -1,15 +1,25 @@
 class Bank:
+    clients = {}
+    number_of_clients = 0
+
     def __init__(self, name):
-        self._clients = {}
-        self._clients_number = 0
-        self._bank_name = name
+        self.clients = {}
+        self.number_of_clients = 0
+        self.bank_name = name
         pass
 
-    def add_client():
-        
+    def add_client(self, ID, name):
+        ID = self.number_of_clients #TODO реализоаать ID
+        new_client = Client(ID, name) #?надо?
+        self.clients[ID] = name
+        self.number_of_clients += 1
         pass
 
-    def find_client():
+    def find_client(self, ID):
+        for client in self.clients:
+            if ID in client:
+                return True
+        return False
         pass
 
 class BankInterface:
@@ -22,7 +32,7 @@ class BankInterface:
             action = input("Choose action:\n 1.Sing in to ID.\n 2.Create ID")
             match action:
                 case 1:
-
+                    self.sign_in(bank)
                     pass
                 case 2:
 
@@ -50,7 +60,9 @@ class BankInterface:
                             print("Invalid option. Try again.")
 
     def registration(bank):
-
+        client_name = input("Enter your name and surname: ")
+        bank.add_client()
+        
 
 
 
@@ -63,8 +75,12 @@ class BankAccount:
     pass
 
 class Client:
-    def __init__(self, ID):
+
+
+    def __init__(self, ID, name):
         self.ID = ID
+        self.name = name
+
     def open_account(self):
         pass
     def close_account(self):
