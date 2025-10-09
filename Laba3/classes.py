@@ -8,9 +8,9 @@ class Bank:
         self.bank_name = name
         pass
 
-    def add_client(self, ID, name):
+    def add_client(self, name):
         ID = self.number_of_clients #TODO реализоаать ID
-        new_client = Client(ID, name) #?надо?
+        new_client = Client(ID, name) #?надо ли создавать объет для хранения счетов
         self.clients[ID] = name
         self.number_of_clients += 1
         pass
@@ -26,42 +26,46 @@ class BankInterface:
     def __init__(self, bank):
         self._bank = bank
 
-    def Sign_in_ID(bank): #*def to create or sing in ID
+    
+    #// MAIN_menu вроде готово
+    def MAIN_menu (self, bank): #*def to create or sing in ID 
         while True:
 
-            action = input("Choose action:\n 1.Sing in to ID.\n 2.Create ID")
+            action = int(input("Choose action:\n 1.Sing in to ID.\n 2.Create ID"))
             match action:
                 case 1:
-                    self.sign_in(bank)
-                    pass
+                    self.sign_in(bank) #дальнейший ход интерфейса
+                    return
                 case 2:
-
-                    pass
+                    self.registration(bank) #дальнейший ход интерфейса
+                    return
                 case _:
                     print("Invalid option. Try again.")
 
-    def sign_in(bank): 
+    #//тут вроже тоже всё
+    def sign_in(self, bank): 
         while True:
-            ID = input("Enter ID: ")
-            if bank.find_id():
-                #continue 
+            client_ID = int(input("Enter ID: ")) #?потом string
+            if bank.find_id(client_ID):
+                #дальнейший интерфейс
+                return
             else:
                 print("No valid ID. Try again or create an ID.")
                 
                 while True:
-                    action = input("1.Try again\n 2.Create new ID")
+                    action = int(input("1.Try again\n 2.Create new ID"))
                     match action:
                         case 1:
-                            break
+                            break #back to first cycle
                         case 2:
                             self.registration(bank)
-                            #?return
+                            #?return или сразу переход на (3)
                         case _:
                             print("Invalid option. Try again.")
 
     def registration(bank):
         client_name = input("Enter your name and surname: ")
-        bank.add_client()
+        bank.add_client(client_name)
         
 
 
