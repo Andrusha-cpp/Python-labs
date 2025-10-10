@@ -67,7 +67,24 @@ class BankInterface:
         client_name = input("Enter your name and surname: ")
         bank.add_client(client_name)
         
+class ClientInterface:
 
+    def MAIN_not_menu(self, client):
+        while True:
+
+            action = int(input("Choose action:\n 1.Open account.\n 2.Close account.\n 3.Operations with account."))
+            match action:
+                        case 1:
+                            client.open_account()
+                            return 
+                        case 2:
+                            client.open_account()
+                            return
+                        case 3:
+                            #next option
+                            pass
+                        case _:
+                            print("Invalid option. Try again.")
 
 
 
