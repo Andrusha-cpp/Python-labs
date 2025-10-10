@@ -10,8 +10,7 @@ class Bank:
 
     def add_client(self, name):
         ID = self.number_of_clients #TODO реализоаать ID
-        new_client = Client(ID, name) #?надо ли создавать объет для хранения счетов
-        self.clients[ID] = name
+        self.clients[ID] = Client(ID, name)
         self.number_of_clients += 1
         pass
 
@@ -75,10 +74,12 @@ class ClientInterface:
             action = int(input("Choose action:\n 1.Open account.\n 2.Close account.\n 3.Operations with account."))
             match action:
                         case 1:
-                            client.open_account()
+                            self.openning_interface(client)
+                            print("Account succesfully opened.")
                             return 
                         case 2:
                             client.close_account()
+                            print("Account closed.")
                             return
                         case 3:
                             self.account_operations(client)
@@ -103,24 +104,47 @@ class ClientInterface:
                         case _:
                             print("Invalid option. Try again.")
 
+    def openning_interface(self, client):
+        while True:
+
+            action = int(input("Choose currency of account:\n 1.USD.\n 2.BYN.\n 3.EUR."))
+            match action:
+                        case 1:
+                            client.open_account("USD")
+                            return 
+                        case 2:
+                            client.open_account("BYN")
+                            return
+                        case 3:
+                            client.open_account("EUR")
+                            return
+                        case _:
+                            print("Invalid option. Try again.")
+
 
     
     
 
 class BankAccount:
-    
-    def __init__(self, currency, money):
+    amount_of_money = 0
+    account_number = 0
+
+    def __init__(self, currency):
         self.currency = currency
-        self.amount_of_money = money
 
 class Client:
+    accounts = []
+    number_of_accounts = 0
 
     def __init__(self, ID, name):
         self.ID = ID
         self.name = name
 
-    def open_account(self):
-        pass
+    #? get_name
+    def open_account(self, currency):
+        self.accounts[self.number_of_accounts] = BankAccount(currency)
+        self.number_of_accounts += 1
+        
     def close_account(self):
         pass
     def TopUp_account(self):
