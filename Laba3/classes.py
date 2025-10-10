@@ -78,25 +78,42 @@ class ClientInterface:
                             client.open_account()
                             return 
                         case 2:
-                            client.open_account()
+                            client.close_account()
                             return
                         case 3:
-                            #next option
-                            pass
+                            self.account_operations(client)
+                            return
                         case _:
                             print("Invalid option. Try again.")
 
+    def account_operations(self, client):
+        while True:
+
+            action = int(input("Choose action:\n 1.Top up account.\n 2.Withdraw money.\n 3.Transfer money to account."))
+            match action:
+                        case 1:
+                            client.TopUp_account()
+                            return 
+                        case 2:
+                            client.withdraw_money()
+                            return
+                        case 3:
+                            client.money_transfer()
+                            return
+                        case _:
+                            print("Invalid option. Try again.")
 
 
     
     
 
 class BankAccount:
-    #TODO currency of accaount
-    pass
+    
+    def __init__(self, currency, money):
+        self.currency = currency
+        self.amount_of_money = money
 
 class Client:
-
 
     def __init__(self, ID, name):
         self.ID = ID
@@ -109,6 +126,8 @@ class Client:
     def TopUp_account(self):
         pass
     def money_transfer(self):
+        pass
+    def withdraw_money(self):
         pass
     #TODO: polya: input_ID
     #TODO somehow make creation of new accounts
