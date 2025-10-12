@@ -28,7 +28,7 @@ class BankInterface:
     def MAIN_menu (self): #*def to create or sing in ID 
         while True:
 
-            action = int(input("Choose action:\n 1.Sing in to ID.\n 2.Create ID"))
+            action = int(input("Choose action:\n 1.Sing in to ID.\n 2.Create ID\n"))
             match action:
                 case 1:
                     self.sign_in(self.bank) #дальнейший ход интерфейса
@@ -50,7 +50,7 @@ class BankInterface:
                 print("No valid ID. Try again or create an ID.")
                 
                 while True:
-                    action = int(input("1.Try again\n 2.Create new ID"))
+                    action = int(input("1.Try again\n 2.Create new ID\n"))
                     match action:
                         case 1:
                             break #back to first cycle
@@ -74,7 +74,7 @@ class ClientInterface:
         while True:
 
             action = int(input("Choose action:\n 1.Open account.\n 2.Close account." \
-            "\n 3.Operations with account.\n 4.Get all accounts statement"))
+            "\n 3.Operations with account.\n 4.Get all accounts statement\n"))
             match action:
                         case 1:
                             self.openning_interface(self.client)
@@ -97,7 +97,7 @@ class ClientInterface:
     def account_operations(self):
         while True:
 
-            action = int(input("Choose action:\n 1.Top up account.\n 2.Withdraw money.\n 3.Transfer money to account."))
+            action = int(input("Choose action:\n 1.Top up account.\n 2.Withdraw money.\n 3.Transfer money to account.\n"))
             match action:
                         case 1:
                             self.client.TopUp_account()
@@ -114,7 +114,7 @@ class ClientInterface:
     def openning_interface(self):
         while True:
 
-            action = int(input("Choose currency of account:\n 1.USD.\n 2.BYN.\n 3.EUR."))
+            action = int(input("Choose currency of account:\n 1.USD.\n 2.BYN.\n 3.EUR.\n"))
             match action:
                         case 1:
                             self.client.open_account("USD")
