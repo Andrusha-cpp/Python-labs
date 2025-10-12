@@ -138,6 +138,16 @@ class BankAccount:
         self.currency = currency
         self.owner_ID = owner_ID
 
+    def TopUp_account(self):
+        pass
+    def money_transfer(self):
+        pass
+    def withdraw_money(self):
+        pass
+
+
+
+
 class Client:
     accounts = {}
     number_of_accounts = 0
@@ -157,13 +167,7 @@ class Client:
     def close_account(self):
         #delte from dict
         pass
-    def TopUp_account(self):
-        
+
+    def account_statement(self):
         pass
-    def money_transfer(self):
-        pass
-    def withdraw_money(self):
-        pass
-    #TODO: polya: input_ID
-    #TODO somehow make creation of new accounts
-    pass
+    
