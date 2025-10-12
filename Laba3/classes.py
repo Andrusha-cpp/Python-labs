@@ -40,7 +40,7 @@ class BankInterface:
                 case _:
                     print("Invalid option. Try again.")
 
-    #//тут вроже тоже всё
+    #//тут вроде тоже всё
     def sign_in(self, bank): 
         while True:
             client_ID = int(input("Enter ID: ")) #?потом string
@@ -57,6 +57,7 @@ class BankInterface:
                             break #back to first cycle
                         case 2:
                             self.registration(bank)
+                            print("You've been succesfully registrated!")
                             #?return или сразу переход на (3)
                         case _:
                             print("Invalid option. Try again.")
