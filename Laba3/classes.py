@@ -22,7 +22,7 @@ class Bank:
 
 class BankInterface:
     def __init__(self, bank):
-        self._bank = bank
+        self.bank = bank
 
     #// MAIN_menu вроде готово
     def MAIN_menu (self): #*def to create or sing in ID 
@@ -55,15 +55,15 @@ class BankInterface:
                         case 1:
                             break #back to first cycle
                         case 2:
-                            self.registration(self.bank)
+                            self.registration()
                             print("You've been succesfully registrated!")
                             #?return или сразу переход на (3)
                         case _:
                             print("Invalid option. Try again.")
 
-    def registration(bank):
+    def registration(self):
         client_name = input("Enter your name and surname: ")
-        bank.add_client(client_name)
+        self.bank.add_client(client_name)
         
 class ClientInterface:
 
