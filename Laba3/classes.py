@@ -19,7 +19,6 @@ class Bank:
             if ID in client:
                 return True
         return False
-        pass
 
 class BankInterface:
     def __init__(self, bank):
@@ -71,7 +70,8 @@ class ClientInterface:
     def MAIN_not_menu(self, client):
         while True:
 
-            action = int(input("Choose action:\n 1.Open account.\n 2.Close account.\n 3.Operations with account."))
+            action = int(input("Choose action:\n 1.Open account.\n 2.Close account." \
+            "\n 3.Operations with account.\n 4.Get all accounts statement"))
             match action:
                         case 1:
                             self.openning_interface(client)
@@ -83,6 +83,10 @@ class ClientInterface:
                             return
                         case 3:
                             self.account_operations(client)
+                            return
+                        case 4:
+                            client.accounts_statement()
+                            print("Something")
                             return
                         case _:
                             print("Invalid option. Try again.")
@@ -128,26 +132,33 @@ class ClientInterface:
 class BankAccount:
     amount_of_money = 0
     account_number = 0
+    
 
-    def __init__(self, currency):
+    def __init__(self, currency, owner_ID):
         self.currency = currency
+        self.owner_ID = owner_ID
 
 class Client:
-    accounts = []
+    accounts = {}
     number_of_accounts = 0
 
     def __init__(self, ID, name):
         self.ID = ID
         self.name = name
 
+    def get_ID(self):
+        return self.ID
+
     #? get_name
     def open_account(self, currency):
-        self.accounts[self.number_of_accounts] = BankAccount(currency)
+        self.accounts[self.number_of_accounts] = BankAccount(currency, self.ID)
         self.number_of_accounts += 1
         
     def close_account(self):
+        #delte from dict
         pass
     def TopUp_account(self):
+        
         pass
     def money_transfer(self):
         pass
