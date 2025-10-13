@@ -1,0 +1,8 @@
+
+Account Statement for grghrh (ID: 10000001)
+01C10000001: USD, balance = 7000.0
+02C10000001: BYN, balance = 3000.0
+
+Account Statement for grghrh (ID: 10000001)
+01C10000001: USD, balance = 7000.0
+02C10000001: BYN, balance = 3000.0
