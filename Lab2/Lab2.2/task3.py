@@ -8,7 +8,7 @@ def log_calls(filename):
             time = datetime.datetime.now() #what time is now
             line = f"{time} | {func.__name__} | {args} {kwargs}\n"
             
-            with open(filename, "a") as file: #use with..as to automaticly close file
+            with open(filename, "a") as file: #*to automaticly close file
                 file.write(line)
            
             return func(*args, **kwargs)

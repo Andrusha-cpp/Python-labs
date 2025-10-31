@@ -1,5 +1,5 @@
 def cache(func):
-    cache_ = {} # storage for our cash
+    cache_ = {} # storage for cash
 
     def wrapper(*args, **kwargs):
 
