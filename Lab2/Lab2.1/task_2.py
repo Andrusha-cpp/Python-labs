@@ -1,12 +1,21 @@
 numbers = input("Enter numbers: ")
 
 numbers = numbers.split()
-arr = []
-for el in numbers:
-    if '.' in el:
-        arr = float(el)
-    else:
-        arr = int(el)
+length = len(numbers)
+arr = [i for i in range(length)]
+
+try:
+    i = 0
+    for el in numbers:
+        if '.' in el:
+            arr[i] = float(el)
+            i += 1
+        else:
+            arr[i] = int(el)
+            i += 1
+except ValueError:
+    print("Incorrect value. Rerun programm and try again.")
+    exit()
 print(arr)
 
 #print unique numbers
