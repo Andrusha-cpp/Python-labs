@@ -12,11 +12,8 @@ def find_second(len_, arr):
 
     return second
 
-length = int(input("How many elements do you want to add:"))
-a = []
-print("Enter the list")
-for i in range(0, length):
-    a.append(int(input()))
+arr = [float(x) for x in input("Enter the array: ").split()]
+length = len(arr)
 
-biggest_sec = find_second(length, a)
+biggest_sec = find_second(length, arr)
 print(f"Second biggest number is {biggest_sec}")

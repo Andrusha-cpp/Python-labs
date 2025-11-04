@@ -1,8 +1,4 @@
-length = int(input("How many elements do you want to add:"))
-arr = []
-print("Enter the list")
-for i in range(0, length):
-    arr.append(int(input()))
+arr = [float(x) for x in input("Enter the array: ").split()]
 
 set_ = []
 for el in arr:
