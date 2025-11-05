@@ -4,9 +4,13 @@ def transpose(matrix):
     transp_matrix = [[matrix[i][j] for i in range(column_length)] for j in range(row_length)]
     return transp_matrix
 
-matrix = [[1, 2, 3],
-          [4, 5, 6],
-          [7, 8, 9]]
+
+n, m = map(int, input("Enter size of matrix: ").split())
+print("Enter matrix: ")
+matrix = [val for val in range(m)]
+for i in range(n):
+    matrix[i] = list(map(int, input("").split()))
+print(matrix)
 
 transp_matrix = transpose(matrix)
 
