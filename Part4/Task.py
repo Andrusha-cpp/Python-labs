@@ -8,6 +8,7 @@ def main():
     pickle = "Part4/cache_table.pkl"
     df = pd.read_pickle(pickle)
 
+    season(df)
     sale_type(df)
 
     
