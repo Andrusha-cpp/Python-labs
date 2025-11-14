@@ -6,6 +6,6 @@ import seaborn as sns
 df = pd.read_pickle("Part5/cache_table.pkl")
 print(df.columns)
 
-print(df.dtypes)
-#df['Profit'] = df['Unnamed: 8'] - df['Unnamed: 9']
-#print(df['Profit'])
+df['Profit'] = df['Sales'] - df['Cost price']
+print(df['Profit'])
+
