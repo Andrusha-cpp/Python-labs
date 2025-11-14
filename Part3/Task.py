@@ -79,13 +79,13 @@ plt.xlabel("Год поступления")
 plt.ylabel("Проходной балл")
 plt.savefig("av_pass_score.png", dpi=300)
 
+#* amount of people on each specialty
 specs_amount = data['Специальность'].value_counts()
 plt.figure(figsize=(10,7))
 sns.barplot(x=specs_amount.index, y=specs_amount.values, palette="viridis")
 plt.title("Количество поступивших студентов по специальностям")
 plt.xlabel("Специальность")
 plt.ylabel("Количество студентов")
-plt.xticks(rotation=45)  # чтобы подписи не накладывались
 plt.grid(axis='y', linestyle='--', alpha=0.7)
-plt.tight_layout()  # подгоняет макет
-plt.show()
+plt.tight_layout()
+plt.savefig("people_on_spec.png", dpi=300)
