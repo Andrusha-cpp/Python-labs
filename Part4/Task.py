@@ -8,8 +8,7 @@ def main():
     pickle = "Part4/cache_table.pkl"
     df = pd.read_pickle(pickle)
 
-    season(df)
-    sale_type(df)
+    pas_status(df)
 
     
 
@@ -46,6 +45,15 @@ def pas_status(df):
     plt.ylabel("Amount of people")
     plt.show()
 
+    plt.subplot(1, 3, 2)
+    cross_tab = pd.crosstab(df['PAX_TYPE'], df['SALE_TYPE'])
+    sns.heatmap(cross_tab, annot=True, fmt='d', cmap='YlOrRd', cbar_kws={'label': 'Количество продаж'})
+    plt.title('Распределение типов пассажиров\nпо каналам продаж', fontsize=12, fontweight='bold')
+    plt.xlabel('Канал продаж')
+    plt.ylabel('Тип пассажира')
+    plt.show()
+
+
 def sale_type(df):
     df['FFP_FLAG'] = df['FFP_FLAG'].replace('', 'No').fillna('No')
 
@@ -54,5 +62,7 @@ def sale_type(df):
     plt.xlabel('Sale type')
     plt.ylabel('Amount of clients')
     plt.show()
+
+
 
 main()
