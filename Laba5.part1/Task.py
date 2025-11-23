@@ -88,11 +88,13 @@ def main():
         value_p = re.search(r"[\d,]+", population_text)
         population_value = value_p.group(0).replace(",", "")
 
+        #!ОШИБКА ИНДЕКСА
         data[k][0] = country
         data[k][1] = capital.text
         data[k][2] = area_value
         data[k][3] = population_value
 
+        #TODO ДОДЕЛАТЬ ВВОД В ТАБЛИЦУ
         k += 1
     ############################################################################################################
 
