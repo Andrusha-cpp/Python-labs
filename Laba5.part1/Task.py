@@ -41,33 +41,24 @@ def main():
     countries_source_file = "Laba5.part1/Countries_names.txt"
     countries_info_file = "Laba5.part1/Countries_info.csv"
 
-    #*open files
-    countries = open(countries_source_file, 'r')
-    countries_info = open(countries_info_file, 'w')
-
     #*extract names of countries into list
-    countries_names = [name.strip() for name in countries.readlines()]
-    print(countries_names)
+    with open(countries_source_file, 'r') as countries:
+        countries_names = [name.strip() for name in countries.readlines()]
 
     #* work with countries
     k = 0
     data = [[0] * 4 for _ in range(len(countries_names))]
 
-    print(data)
     for country in countries_names:
         soup = get_page(country)
-        data[k] = []
     ########################################################################################################################
         title = soup.find('title')
-        print(title.text)
 
         area_th = soup.find('th', string=lambda x: x and "Area" in x)
         area_td = area_th.find_parent('tr').find_next_sibling('tr').find('td')
-        print(area_td.text)
 
         population_th = soup.find('th', string=lambda x: x and "Population" in x)
         population = population_th.find_parent('tr').find_next_sibling('tr').find('td')
-        print(population.text)
 
         capital_th = None
         for th in soup.find_all('th'):
@@ -76,7 +67,6 @@ def main():
                 capital_th = th
                 break
         capital = capital_th.find_next_sibling('td').find('a')
-        print(capital.text)
 
         country = title.text.split(" - ")[0]
 
@@ -88,19 +78,18 @@ def main():
         value_p = re.search(r"[\d,]+", population_text)
         population_value = value_p.group(0).replace(",", "")
 
-        #!ОШИБКА ИНДЕКСА
         data[k][0] = country
         data[k][1] = capital.text
         data[k][2] = area_value
         data[k][3] = population_value
 
-        #TODO ДОДЕЛАТЬ ВВОД В ТАБЛИЦУ
         k += 1
     ############################################################################################################
 
-        
+    print(data)
+    with open(countries_info_file, 'a', newline="", encoding="utf-8") as countries_info:
+        writer = csv.writer(countries_info)
+        writer.writerows(data)
 
-    countries_info.close()
-    countries.close()
 
 main()
