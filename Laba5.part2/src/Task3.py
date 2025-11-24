@@ -1,8 +1,9 @@
-def string_comparassion(str1, str2):
-    if len(str1) == len(str2):
-        if str1 == str2:
-            return True
-        else:
-            return False
+def polindrom_check(string):
+    rev_string = string[::-1]
+
+    if string == rev_string:
+        return True
     else:
         return False
+    
+    
