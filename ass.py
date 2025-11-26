@@ -1,16 +1,18 @@
-#если в строке больше 15 и только буквы то каждый пятый, если не только и длинна кратна 5 то вывести "отчислен"
+#в строке длина Ю 10 все глассные зам на цифру если только буквы то выведем каждый второй с конца если только цифры то найдем частное от деления на сто 
 
-string = input("Input string:")
+string = input("Enter string:")
 
-alpha_check = string.isalpha()
+if string.isdigit():
+    string_digit = int(string)
+    print(f"Result of division on 100: {string_digit / 100}")
 
-num_check = string.isdigit()
+if string.isalpha():
+    print(f"If only letters: {string[::-2]}")
 
-
-if alpha_check:
-    if len(string) > 15:
-        print(string[::5])
-    elif len(string) % 5 == 0:
-        print("Отчислен")
-
-
+k = 1
+if len(string) > 10:
+    for letter in string:
+        if letter in "aeiouAEIOU":
+            string = string.replace(letter, str(k))
+            k += 1
+    print(f"Result: {string}")
