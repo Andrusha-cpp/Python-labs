@@ -1,9 +1,7 @@
-print("""Choose coffee you'd like to order:
-1. Latte
-2. Capuchino
-3. Espresso
-4. Double Espresso
-5. Flat White
-6. American
-7. Raf
-""")
+try:
+    a = 10
+    b = [10, 9 , 8]
+    for i in a:
+        print(i)
+finally:
+    print('Final')
